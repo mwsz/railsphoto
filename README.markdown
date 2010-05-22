@@ -24,6 +24,7 @@
 * Geolokalizacja (po zalogowaniu i kliknięciu galerie pojawia się opcja dodaj marker, można tam stworzyć nową galerie z jej lokalizacją)
 * Licznik odwiedzin zdjęcia
 * Niezalogowani użytkownicy mogą tylko przeglądać serwis
+* Paginacja zdjęć w kategoriach i przy wyszukiwaniu
 
 ## Aktualnie wykonywane:
 
@@ -33,7 +34,6 @@
 ## Do zrobienia:
 
 * Walidacje
-* Paginacja galerii, zdjęć, komentarzy
 * Dodawanie komentarzy z użyciem Ajaxa
 
 ## Na to nie starczyło czasu :)

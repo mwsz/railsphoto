@@ -131,3 +131,5 @@ pl:
       global_average: "Średnia ocena: {{value}} na {{max}}"
       user_rating: "Twoja ocena: {{value}} na {{max}}"
       hover: "Oceń na {{value}} z {{max}}"
+  previous: "Poprzednie"
+  next: "Następne"

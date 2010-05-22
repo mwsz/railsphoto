@@ -4,17 +4,17 @@ before_filter :require_user, :except => [:show, :index]
   def index
     # wyszukiwanie: wedlug tagow, potem wedlug opisow, jezeli szukana fraza nie jest pusta
     if params[:search]
-      @zdjecia = Zdjecie.tagged_with(params[:search], :on => :tags)
+      @zdjecia = Zdjecie.tagged_with(params[:search], :on => :tags).paginate :page => params[:page], :per_page => 8
       tag_cloud
     elsif params[:szukaj_opisu]
       if params[:szukaj_opisu].length == 0
         flash[:notice] = "Nie znaleziono żadnego zdjęcia, należy wpisać jakiś tekst do wyszukiwarki!"
         redirect_to root_path       
       end
-      @zdjecia = Zdjecie.find(:all, :conditions => [ "opis LIKE ?","%" + params[:szukaj_opisu] +"%"]) 
+      @zdjecia = Zdjecie.find(:all, :conditions => [ "opis LIKE ?","%" + params[:szukaj_opisu] +"%"]).paginate :page => params[:page], :per_page => 8
       tag_cloud
     else
-      @zdjecia = Zdjecie.all
+      @zdjecia = Zdjecie.all.paginate :page => params[:page], :per_page => 8
       tag_cloud
     end
   end
@@ -44,7 +44,6 @@ before_filter :require_user, :except => [:show, :index]
       z = Zdjecie.find(params[:id])
       z.update_attribute( :licznik, z.licznik + 1 )
     end
-#   @next = Kategoria.first(:conditions => "Zdjecia.id > :id")
   end
   
   def new

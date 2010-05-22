@@ -8,7 +8,11 @@ before_filter :require_user, :except => [:show, :index]
   
   def show
     @kategorie = Kategoria.all
-    @wybrana = Kategoria.find(params[:id], :include => [:zdjecia])
+  #  @wybrana = Kategoria.find(params[:id], :include => [:zdjecia])
+  
+    @wybran = Kategoria.find(params[:id])
+    @wybrana = @wybran.zdjecia.paginate(:page => params[:page], :per_page => 12) 
+  
   end
   
   def new

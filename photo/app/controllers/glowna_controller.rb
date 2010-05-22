@@ -2,7 +2,7 @@ class GlownaController < ApplicationController
   def index
     @kategorie = Kategoria.all
 
-    @ostatnie = Zdjecie.all(:order => "created_at DESC", :limit => 10) 
+    @ostatnie = Zdjecie.all(:order => "created_at DESC", :limit => 8) 
 
     @najczesciej = Zdjecie.all(:order => "licznik DESC", :limit => 3) 
 

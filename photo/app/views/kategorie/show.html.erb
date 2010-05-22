@@ -22,16 +22,17 @@
 </section>
 
 <article id="kat"> 
-<h1>Zdjęcia z kategorii <%= @wybrana.nazwa %></h1>
+<h1>Zdjęcia z kategorii <%= @wybran.nazwa %></h1>
 <ul> 
-      <% for zdjecie in @wybrana.zdjecia.all %>
+      <% for zdjecie in @wybrana %>
   <li>
           <% link_to zdjecie do %>
             <%= image_tag zdjecie.photo.url(:medium) %>
       <% end %>
   </li>
-        <% end %>
+<% end %>
 </ul> 
+ <%= will_paginate @wybrana %>
 </article> 
 </section>
 
